@@ -7,5 +7,113 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
     
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 16px;
+}
+
+h2 {
+    margin-bottom: 32px;
+}
+
+.background-gen {
+    background-color: red;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.color-added {
+    background-color: yellow;
+    width: 80%;
+    display: flex;
+    column-gap: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+#colors {
+    width: 100%;
+    background: blue;
+    display: grid;
+    grid-auto-columns: 100px;
+    grid-auto-flow: column;
+    align-content: space-between;
+    justify-content: space-evenly;
+}
+
+.color-selection {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-percent {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="text"]{
+    background-color: gray;
+    width: 50%;
+}
+
+
+
+/* .color-selection {
+    width: 20%;
+    background-color: yellow;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;   
+}
+
+.color-front {
+    border-radius: 50%;
+    width: 50%;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    border: 1px solid black;
+}
+*/
+
+.color-front {
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    border: 2px solid #000;
+    margin-bottom: 16px;
+}
+
+input[type="color"]{
+    display: none;
+}
+
+#add-color {
+    height: 75%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
 }

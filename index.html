@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gradient Background</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/1b8bf9e07a.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -12,12 +13,14 @@
     <div class="background-gen">
         <div class="color-added">
             <div id="colors">
-                <div id="color-selection1">
-                    <input type="color" name="color1" value="#0f0">
+                <div class="color-selection">
+                    <span id="color_front1" class="color-front"></span>
+                    <input type="color" name="color1" value="#00ff00">
                     <span class="color-percent"><input type="text" name="color1-percent"><i class="fa-solid fa-percent percentage"></i></span>
                 </div>
-                <div id="color-selection2">
-                    <input type="color" name="color2" value="#0f0">
+                <div class="color-selection">
+                    <span id="color_front2" class="color-front"></span>
+                    <input type="color" name="color2" value="#ff0000">
                     <span class="color-percent"><input type="text" name="color2-percent"><i class="fa-solid fa-percent percentage"></i></span>
                 </div>
             </div>
