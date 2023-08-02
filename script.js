@@ -3,7 +3,7 @@ const inputColors = document.querySelectorAll(".color-input");
 const colorFront = document.querySelectorAll(".color-front");
 const selectGradient = document.querySelector("#type-gradient");
 
-const listColors = ["#00ff00", "#ff0000"];
+const listColors = ["#4776E6", "#8E54E9"];
 let typeGradient = selectGradient.value;
 
 addGradientBackground();

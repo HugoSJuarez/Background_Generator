@@ -1,41 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gradient Background</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/1b8bf9e07a.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/1b8bf9e07a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <h1>Background Generator</h1>
     <h2>Current CSS Background</h2>
     <div class="background-gen">
-        <div class="color-added">
-            <div id="colors">
-                <div class="color-selection">
-                    <span id="color-front1" class="color-front"></span>
-                    <input class="color-input" data-color="0" type="color" name="color1" value="#00ff00">
-                    <span class="color-percent"><input type="text" value="0" name="color1-percent"><i class="fa-solid fa-percent percentage"></i></span>
-                </div>
-                <div class="color-selection">
-                    <span id="color-front2" class="color-front"></span>
-                    <input class="color-input" data-color="1" type="color" name="color2" value="#ff0000">
-                    <span class="color-percent"><input type="text" value="100" name="color2-percent"><i class="fa-solid fa-percent percentage"></i></span>
-                </div>
-            </div>
-            <div id="add-color">
-                <i class="fa-solid fa-plus"></i>
-            </div>
+      <div class="color-added">
+        <div id="colors">
+          <div class="color-selection">
+            <div class="btn-delete"><i class="fa-solid fa-trash"></i></div>
+            <span id="color-front1" class="color-front"></span>
+            <input
+              class="color-input"
+              data-color="0"
+              type="color"
+              name="color1"
+              value="#00ff00"
+            />
+            <span class="color-percent"
+              ><input type="text" value="0" name="color1-percent" /><i
+                class="fa-solid fa-percent percentage"
+              ></i
+            ></span>
+          </div>
+          <div class="color-selection">
+            <div class="btn-delete"><i class="fa-solid fa-trash"></i></div>
+            <span id="color-front2" class="color-front"></span>
+            <input
+              class="color-input"
+              data-color="1"
+              type="color"
+              name="color2"
+              value="#ff0000"
+            />
+            <span class="color-percent"
+              ><input type="text" value="100" name="color2-percent" /><i
+                class="fa-solid fa-percent percentage"
+              ></i
+            ></span>
+          </div>
         </div>
+        <div id="add-color">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+      </div>
+      <div id="gradient-class">
         <select id="type-gradient" name="type-gradient">
-            <option value="linear-gradient">linear-gradient</option>
-            <option value="radial-gradient">radial-gradient</option>
-            <option value="repeating-linear-gradient">repeat-linear-gradient</option>
+          <option value="linear-gradient">linear-gradient</option>
+          <option value="radial-gradient">radial-gradient</option>
+          <option value="repeating-linear-gradient">
+            repeat-linear-gradient
+          </option>
         </select>
+        
+        <span class="degrees"
+              ><input type="text" value="0" name="deg" /><span>
+                deg
+              </span>
+
+      </div>
     </div>
     <h3 id="css-background"></h3>
-    
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

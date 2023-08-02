@@ -17,6 +17,8 @@ body {
     align-items: center;
 }
 
+
+/* Headers */
 h1 {
     font-size: 3rem;
     color: #fff;
@@ -32,8 +34,10 @@ h2 {
     margin-bottom: 32px;
 }
 
+
+/* Option for background Gen */
 .background-gen {
-    /* background-color: red; */
+    background-color: green;
     width: 100%;
     height: 40vh;
     display: flex;
@@ -42,8 +46,9 @@ h2 {
     align-items: center;
 }
 
+/* Color wheel selection */
 .color-added {
-    /* background-color: yellow; */
+    background-color: yellow;
     width: 80%;
     display: flex;
     column-gap: 32px;
@@ -52,21 +57,21 @@ h2 {
 }
 
 #colors {
-    width: 100%;
-    /* background: blue; */
+    background: blue;
     display: grid;
     grid-auto-columns: 100px;
     grid-auto-flow: column;
-    align-content: space-between;
-    justify-content: space-evenly;
+    gap: 32px;
 }
 
 .color-selection {
-    /* background-color: orange; */
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    position: relative;
 }
 
 .color-percent {
@@ -94,6 +99,17 @@ input[type="text"]{
     font-size: 1rem;
 }
 
+/* Color wheel config */
+#color-front1{
+    background-color: #4776E6;
+    box-shadow: 1px 0 10px #555;
+}
+
+#color-front2 {
+    background-color: #8E54E9;
+    box-shadow: 1px 0 10px #555;
+}
+
 .color-front {
     border-radius: 50%;
     width: 100%;
@@ -102,19 +118,11 @@ input[type="text"]{
     margin-bottom: 16px;
 }
 
-#color-front1{
-    background-color: #00ff00;
-    box-shadow: 1px 0 10px #555;
-}
-
-#color-front2 {
-    background-color: #ff0000;
-    box-shadow: 1px 0 10px #555;
-}
-
 input[type="color"]{
     display: none;
 }
+
+/* Button to add another color wheel and delete */
 
 #add-color {
     height: 75%;
@@ -127,3 +135,49 @@ input[type="color"]{
     box-shadow: 1px 0 10px #555;
     border: 2px solid #000;
 }
+
+.btn-delete {
+    width: 30px;
+    aspect-ratio: 1 / 1;
+    background-color: #dd0000;
+    border: 2px solid black;
+    border-radius: 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: -5%;
+    right: 0;
+}
+
+/* Gradient and degree selection */
+#gradient-class {
+    background-color: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+#type-gradient {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    padding: 0 16px;
+}
+
+.degrees{
+    width: 40%;
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 0 16px;
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
