@@ -6,6 +6,7 @@ const selectGradient = document.querySelector("#type-gradient");
 const inputDegree = document.querySelector("#deg");
 const allColors = document.querySelector("#colors");
 const buttonAdd = document.querySelector("#add-color");
+const buttonDelete = document.querySelectorAll(".btn-delete");
 
 const listColors = [];
 const listPercentColors = [];
@@ -16,33 +17,16 @@ const wheelLimit = 4;
 let numberWheels;
 
 // Gradient Generator
-
 inputColors.forEach((input,i) => {
-    colorFront[i].style.backgroundColor = input.value;
-    input.addEventListener("input",(e)=>{
-        let color = e.target.value;
-        colorFront[i].style.backgroundColor=color;
-        listColors[i]=color;
-        addGradientBackground();
-    });
+    addInputColorEvent(input, colorFront[i], i)
 });
 
 colorFront.forEach((color, i) =>{
-    listColors.push(color.style.backgroundColor);
-    color.addEventListener("click", ()=>{
-        inputColors[i].click();
-    });
+    addColorFrontEvent(color,inputColors[i]);
 });
 
 colorPercent.forEach((percent,k)=>{
-    listPercentColors.push(percent.value);
-    percent.addEventListener("input",(e)=>{
-        let percentValue = ( Math.floor( Number(e.target.value)) || 0 );
-        percentValue = (percentValue>100) ? 100 : (percentValue <0) ? 0 : percentValue;
-        e.target.value = percentValue;
-        listPercentColors[k]=percentValue;
-        addGradientBackground();
-    });
+    addPercentColorEvent(percent, k);
 });
 
 selectGradient.addEventListener("change",()=>{
@@ -68,6 +52,12 @@ buttonAdd.addEventListener("click", ()=>{
     }
 });
 
+// Delete colors
+buttonDelete.forEach((del, l) =>{
+    deleteColorWheelEvent(del, l);
+});
+
+// Run gradient Background generator so the first two colorWheels design the background
 addGradientBackground();
 
 
@@ -95,6 +85,7 @@ function createColorWheel(numberAdded){
     let btnLogo = document.createElement("i");
     btnLogo.classList.add("fa-solid", "fa-trash");
     deleteBtn.appendChild(btnLogo);
+    deleteColorWheelEvent(deleteBtn, numberAdded-1);
     colorSelection.appendChild(deleteBtn);
 
     let colorFront = document.createElement("span");
@@ -107,19 +98,9 @@ function createColorWheel(numberAdded){
     inputColor.setAttribute("type","color");
     inputColor.setAttribute("name",( "color" + numberAdded ));
     inputColor.setAttribute("value", "#ffffff" );
-    colorFront.style.backgroundColor=inputColor.value;
     
-    inputColor.addEventListener("input", (e)=>{
-        let color = e.target.value;
-        colorFront.style.backgroundColor = color;
-        listColors[numberAdded-1]=color;
-        addGradientBackground();
-    });
-    listColors.push(colorFront.style.backgroundColor);
-    colorFront.addEventListener("click", ()=>{
-        inputColor.click();
-    });
-    
+    addInputColorEvent(inputColor, colorFront, numberAdded-1);
+    addColorFrontEvent(colorFront,inputColor)
     colorSelection.appendChild(inputColor);
     colorSelection.appendChild(colorFront);
 
@@ -137,17 +118,53 @@ function createColorWheel(numberAdded){
     percentLogo.classList.add("fa-solid", "fa-percent", "percentage");
     colorPercent.appendChild(percentLogo);
 
-    listPercentColors.push(inputPercent.value);
-    inputPercent.addEventListener("input",(e)=>{
-        let percentValue = ( Math.floor( Number(e.target.value)) || 0 );
-        percentValue = (percentValue>100) ? 100 : (percentValue <0) ? 0 : percentValue;
-        e.target.value = percentValue;
-        listPercentColors[numberAdded-1]=percentValue.toString();
-        addGradientBackground();
-    });    
-
+    addPercentColorEvent(inputPercent, numberAdded-1);
     colorSelection.appendChild(colorPercent);
 
     allColors.appendChild(colorSelection);
     addGradientBackground();
+}
+
+function addInputColorEvent(inputColor, colorFront, i){
+    colorFront.style.backgroundColor = inputColor.value;
+    inputColor.addEventListener("input",(e)=>{
+        let color = e.target.value;
+        colorFront.style.backgroundColor=color;
+        listColors[i]=color;
+        addGradientBackground();
+    });
+}
+
+function deleteColorWheelEvent(del, l){
+    del.addEventListener("click", ()=>{
+        if (numberWheels>2){
+            del.parentElement.remove();
+            listColors.splice(l,1);
+            listPercentColors.splice(l,1);
+            numberWheels--;
+            console.log(numberWheels);
+            addGradientBackground();
+        }
+        if (numberWheels === (wheelLimit-1)){
+            buttonAdd.style.display="flex";
+        }
+    });
+}
+
+function addPercentColorEvent(percent, k){
+    listPercentColors.push(percent.value);
+    percent.addEventListener("input",(e)=>{
+        let percentValue = ( Math.floor( Number(e.target.value)) || 0 );
+        percentValue = (percentValue>100) ? 100 : (percentValue <0) ? 0 : percentValue;
+        e.target.value = percentValue;
+        listPercentColors[k]=percentValue;
+        addGradientBackground();
+    });
+}
+
+function addColorFrontEvent(color,input){
+    listColors.push(color.style.backgroundColor);
+    color.addEventListener("click", ()=>{
+        input.click();
+    });
 }

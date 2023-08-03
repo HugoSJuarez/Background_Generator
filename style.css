@@ -125,7 +125,7 @@ input[type="color"]{
 /* Button to add another color wheel and delete */
 
 #add-color {
-    height: 75%;
+    height: 100px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     display: flex;
