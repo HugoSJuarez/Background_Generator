@@ -7,6 +7,8 @@ const inputDegree = document.querySelector("#deg");
 const allColors = document.querySelector("#colors");
 const buttonAdd = document.querySelector("#add-color");
 const buttonDelete = document.querySelectorAll(".btn-delete");
+const textGradient = document.querySelector("h3");
+
 
 const listColors = [];
 const listPercentColors = [];
@@ -72,6 +74,8 @@ function addGradientBackground(){
     });
     styleBg += ")";
     body.style.backgroundImage = styleBg;
+    textGradient.textContent = styleBg;
+
 }
 
 function createColorWheel(numberAdded){
