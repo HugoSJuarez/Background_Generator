@@ -41,7 +41,7 @@ Users should be able to:
 
 ### Links
 
-- Website URL: [To Implement](#to-do)
+- Website URL: [Github Page](https://hugosjuarez.github.io/Background_Generator/)
 
 ## My process
 
@@ -191,5 +191,6 @@ Through the challenge I learn a lot about creating new elements to make the page
 ## To-Do
 
 - [x] Finish the challenge
+- [x] Upload to Github Pages
 - [ ] Make portfolio website
 - [ ] Upload it to the portfolio website
